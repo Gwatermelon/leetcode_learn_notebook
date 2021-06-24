@@ -17,3 +17,18 @@ class Solution:
             deque.append(nums[i])
             res.append(deque[0])
         return res
+    
+# 第二次做自己的版本
+class Solution:
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        if not nums: return []
+        head = 0
+        tail =k
+        res = [] 
+        while tail <= len(nums)-1:
+            res.append(max(nums[head:tail]))
+            head += 1
+            tail += 1
+        res.append(max(nums[head:tail]))
+        return res
+        
